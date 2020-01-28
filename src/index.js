@@ -22,6 +22,16 @@ const resolvers = {
       }
       links.push(link)
       return link
+    },
+    updateLink: (root, args) => {
+      links.forEach((link) => {
+        if (link.id === args.id) {
+          link.id = args.id;
+          link.url = args.url;
+          link.description = args.description;
+        }
+        return link;
+      });
     }
   },
 }
