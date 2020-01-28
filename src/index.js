@@ -32,6 +32,13 @@ const resolvers = {
         }
         return link;
       });
+    },
+    deleteLink: (root, args) => {
+      const index = links.findIndex(item => item.id === args.id);
+      const link = links[index];
+      links.splice(link, 1);
+
+      return link;
     }
   },
 }
